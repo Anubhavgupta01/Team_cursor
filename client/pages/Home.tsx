@@ -19,7 +19,7 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-24" id="home">
+    <section className="relative overflow-hidden py-16 md:py-24 animate-fade scroll-mt-16" id="home">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(900px_400px_at_50%_-50px,hsl(var(--brand-1)/0.18),transparent_70%)]" />
       <div className="mx-auto max-w-5xl text-center">
         <h1 className="font-extrabold text-4xl md:text-6xl tracking-tight">Welcome to AI-Powered Conversations</h1>
@@ -43,7 +43,7 @@ function Features() {
     { icon: Sparkles, title: "Beautiful UI", desc: "Thoughtful design with dark mode, gradients, and clarity." },
   ];
   return (
-    <section id="features" className="py-16 md:py-24">
+    <section id="features" className="py-16 md:py-24 animate-fade scroll-mt-16">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">Features</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -71,7 +71,7 @@ function Pricing() {
     { name: "Team", price: "$29", features: ["5 seats", "Shared library", "Priority support"], cta: "Start Team" },
   ];
   return (
-    <section id="pricing" className="py-16 md:py-24">
+    <section id="pricing" className="py-16 md:py-24 animate-fade scroll-mt-16">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">Pricing</h2>
         <div className="grid gap-6 md:grid-cols-3">
@@ -99,7 +99,7 @@ function Pricing() {
 
 function FAQ() {
   return (
-    <section id="faq" className="py-16 md:py-24">
+    <section id="faq" className="py-16 md:py-24 animate-fade scroll-mt-16">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">FAQ</h2>
         <Accordion type="single" collapsible className="w-full">
@@ -129,7 +129,7 @@ function FAQ() {
 
 function Contact() {
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section id="contact" className="py-16 md:py-24 animate-fade scroll-mt-16">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold">Contact</h2>
         <p className="mt-2 text-muted-foreground">Questions or feedback? We’d love to hear from you.</p>
