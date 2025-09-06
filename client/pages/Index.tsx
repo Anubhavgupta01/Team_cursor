@@ -59,7 +59,7 @@ export default function Index() {
 
   return (
     <AppShell>
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl animate-fade">
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-8">Create Your Illustrated Story</h1>
 
         <div className="grid gap-6 rounded-2xl border bg-card/60 p-6 md:p-8 shadow-sm">
