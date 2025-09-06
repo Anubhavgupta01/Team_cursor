@@ -20,14 +20,17 @@ export default function BackgroundFX() {
   }, []);
 
   // Pre-generate particles positions (stable)
-  const particles = useMemo(() =>
-    Array.from({ length: 18 }).map((_, i) => ({
-      left: Math.round((i * 53) % 100),
-      top: Math.round(((i * 29) % 100)),
-      size: 6 + ((i * 7) % 10),
-      delay: (i % 7) * 0.8,
-      duration: 12 + (i % 5) * 2,
-    })), []);
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 18 }).map((_, i) => ({
+        left: Math.round((i * 53) % 100),
+        top: Math.round((i * 29) % 100),
+        size: 6 + ((i * 7) % 10),
+        delay: (i % 7) * 0.8,
+        duration: 12 + (i % 5) * 2,
+      })),
+    [],
+  );
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -49,9 +52,18 @@ export default function BackgroundFX() {
             <stop offset="100%" stopColor="hsl(var(--brand-2)/0.6)" />
           </linearGradient>
         </defs>
-        <g filter="url(#blur10)" stroke="url(#grad)" strokeWidth="0.8" fill="none">
+        <g
+          filter="url(#blur10)"
+          stroke="url(#grad)"
+          strokeWidth="0.8"
+          fill="none"
+        >
           {Array.from({ length: 12 }).map((_, i) => (
-            <path key={i} d={`M ${-100 + i * 120} ${80 + (i % 3) * 120} C ${200 + i * 60} ${-40 + i * 10}, ${400 + i * 60} ${220 + i * 8}, ${800 + i * 80} ${120 + i * 12}`} opacity="0.25" />
+            <path
+              key={i}
+              d={`M ${-100 + i * 120} ${80 + (i % 3) * 120} C ${200 + i * 60} ${-40 + i * 10}, ${400 + i * 60} ${220 + i * 8}, ${800 + i * 80} ${120 + i * 12}`}
+              opacity="0.25"
+            />
           ))}
         </g>
       </svg>

@@ -1,11 +1,22 @@
-import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 export type User = { id: string; name: string; email: string };
 
 type AuthCtx = {
   user: User | null;
   loading: boolean;
-  signup: (opts: { name: string; email: string; password: string }) => Promise<void>;
+  signup: (opts: {
+    name: string;
+    email: string;
+    password: string;
+  }) => Promise<void>;
   login: (opts: { email: string; password: string }) => Promise<void>;
   logout: () => Promise<void>;
 };
@@ -33,7 +44,11 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const login: AuthCtx["login"] = async ({ email }) => {
     let raw = localStorage.getItem(LS_KEY);
     if (!raw) {
-      const newUser: User = { id: crypto.randomUUID(), name: email.split("@")[0], email };
+      const newUser: User = {
+        id: crypto.randomUUID(),
+        name: email.split("@")[0],
+        email,
+      };
       raw = JSON.stringify(newUser);
       localStorage.setItem(LS_KEY, raw);
     }
@@ -45,7 +60,10 @@ export function AuthProvider({ children }: PropsWithChildren) {
     setUser(null);
   };
 
-  const value = useMemo(() => ({ user, loading, signup, login, logout }), [user, loading]);
+  const value = useMemo(
+    () => ({ user, loading, signup, login, logout }),
+    [user, loading],
+  );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

@@ -29,8 +29,8 @@ export const handleGenerateStory: RequestHandler = (req, res) => {
         n === 1
           ? "The Beginning"
           : n === scenesCount
-          ? "The End"
-          : `Chapter ${n}`
+            ? "The End"
+            : `Chapter ${n}`
       }`;
       const text = `In this ${tone.toLowerCase()} ${genre.toLowerCase()} tale for ${audience.toLowerCase()}, ${idea}. The scene ${n} unfolds with vivid detail as our characters progress through their journey in "${baseTitle}".`;
       const imageUrl = `/placeholder.svg?scene=${n}`;

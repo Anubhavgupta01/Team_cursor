@@ -100,36 +100,76 @@
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground font-sans; }
-  h1,h2,h3 { @apply font-display; }
-  html { scroll-behavior: smooth; }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
-  .bg-brand-gradient { background-image: linear-gradient(to right, hsl(var(--brand-1)), hsl(var(--brand-2))); }
+  .bg-brand-gradient {
+    background-image: linear-gradient(
+      to right,
+      hsl(var(--brand-1)),
+      hsl(var(--brand-2))
+    );
+  }
 }
 
 /* Immersive background */
 .aurora {
   background:
-    radial-gradient(1200px 600px at 50% -200px, hsl(var(--brand-1)/0.25), transparent 70%),
-    radial-gradient(800px 400px at 10% 10%, hsl(var(--brand-2)/0.12), transparent 70%),
-    radial-gradient(800px 400px at 90% 20%, hsl(var(--brand-1)/0.10), transparent 70%);
-  transform: translate3d(0, calc(var(--scroll-y,0) * -0.02px), 0);
+    radial-gradient(
+      1200px 600px at 50% -200px,
+      hsl(var(--brand-1) / 0.25),
+      transparent 70%
+    ),
+    radial-gradient(
+      800px 400px at 10% 10%,
+      hsl(var(--brand-2) / 0.12),
+      transparent 70%
+    ),
+    radial-gradient(
+      800px 400px at 90% 20%,
+      hsl(var(--brand-1) / 0.1),
+      transparent 70%
+    );
+  transform: translate3d(0, calc(var(--scroll-y, 0) * -0.02px), 0);
   animation: drift 18s ease-in-out infinite alternate;
 }
 .aurora-2 {
   background:
-    radial-gradient(900px 500px at 20% 80%, hsl(var(--brand-2)/0.16), transparent 70%),
-    radial-gradient(700px 350px at 80% 80%, hsl(var(--brand-1)/0.12), transparent 70%);
-  transform: translate3d(0, calc(var(--scroll-y,0) * -0.04px), 0);
+    radial-gradient(
+      900px 500px at 20% 80%,
+      hsl(var(--brand-2) / 0.16),
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 350px at 80% 80%,
+      hsl(var(--brand-1) / 0.12),
+      transparent 70%
+    );
+  transform: translate3d(0, calc(var(--scroll-y, 0) * -0.04px), 0);
   animation: drift 24s ease-in-out infinite alternate-reverse;
 }
 .particle {
   position: absolute;
   border-radius: 9999px;
-  background: radial-gradient(circle at 30% 30%, hsl(var(--brand-1)/0.45), hsl(var(--brand-2)/0.25));
+  background: radial-gradient(
+    circle at 30% 30%,
+    hsl(var(--brand-1) / 0.45),
+    hsl(var(--brand-2) / 0.25)
+  );
   filter: blur(1px);
   opacity: 0.25;
   animation-name: floaty;
@@ -139,22 +179,45 @@
 }
 
 @keyframes floaty {
-  0% { transform: translate3d(-10px, 0, 0); opacity: .15; }
-  50% { transform: translate3d(10px, -20px, 0); opacity: .3; }
-  100% { transform: translate3d(-10px, 0, 0); opacity: .15; }
+  0% {
+    transform: translate3d(-10px, 0, 0);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate3d(10px, -20px, 0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate3d(-10px, 0, 0);
+    opacity: 0.15;
+  }
 }
 @keyframes drift {
-  from { transform: translate3d(0, calc(var(--scroll-y,0) * -0.02px), 0) scale(1); }
-  to { transform: translate3d(0, calc(var(--scroll-y,0) * -0.02px), 0) scale(1.05); }
+  from {
+    transform: translate3d(0, calc(var(--scroll-y, 0) * -0.02px), 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, calc(var(--scroll-y, 0) * -0.02px), 0) scale(1.05);
+  }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .aurora, .aurora-2, .particle { animation: none !important; }
+  .aurora,
+  .aurora-2,
+  .particle {
+    animation: none !important;
+  }
 }
 
 /***** Print styles for export *****/
 @media print {
-  header, .no-print, .fixed { display: none !important; }
-  main { padding: 0 !important; }
+  header,
+  .no-print,
+  .fixed {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+  }
 }

@@ -9,9 +9,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/state/auth";
 import BackgroundFX from "@/components/BackgroundFX";
@@ -24,33 +35,67 @@ export function AppShell({ children }: PropsWithChildren) {
       <BackgroundFX />
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
         <div className="container flex items-center justify-between h-16">
-          <a href="/home" className="font-extrabold text-xl tracking-tight select-none">
-            <span className="bg-brand-gradient bg-clip-text text-transparent">StoryVisualizer</span>
+          <a
+            href="/home"
+            className="font-extrabold text-xl tracking-tight select-none"
+          >
+            <span className="bg-brand-gradient bg-clip-text text-transparent">
+              StoryVisualizer
+            </span>
           </a>
           <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-            <a className="hover:text-foreground transition" href="/home">Home</a>
-            <a className="hover:text-foreground transition" href="/home#features">Features</a>
-            <a className="hover:text-foreground transition" href="/home#pricing">Pricing</a>
-            <a className="hover:text-foreground transition" href="/home#faq">FAQ</a>
-            <a className="hover:text-foreground transition" href="/home#contact">Contact</a>
+            <a className="hover:text-foreground transition" href="/home">
+              Home
+            </a>
+            <a
+              className="hover:text-foreground transition"
+              href="/home#features"
+            >
+              Features
+            </a>
+            <a
+              className="hover:text-foreground transition"
+              href="/home#pricing"
+            >
+              Pricing
+            </a>
+            <a className="hover:text-foreground transition" href="/home#faq">
+              FAQ
+            </a>
+            <a
+              className="hover:text-foreground transition"
+              href="/home#contact"
+            >
+              Contact
+            </a>
           </nav>
           <div className="flex items-center gap-2">
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger className="rounded-full">
                   <Avatar>
-                    <AvatarFallback>{user.name.slice(0,2).toUpperCase()}</AvatarFallback>
+                    <AvatarFallback>
+                      {user.name.slice(0, 2).toUpperCase()}
+                    </AvatarFallback>
                   </Avatar>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem onClick={() => setOpen(true)}>Settings</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => logout()}>Logout</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setOpen(true)}>
+                    Settings
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => logout()}>
+                    Logout
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
               <>
-                <a href="/signup" className="hidden md:block"><Button>Sign Up</Button></a>
-                <a href="/login" className="hidden md:block"><Button variant="outline">Log In</Button></a>
+                <a href="/signup" className="hidden md:block">
+                  <Button>Sign Up</Button>
+                </a>
+                <a href="/login" className="hidden md:block">
+                  <Button variant="outline">Log In</Button>
+                </a>
               </>
             )}
             <ThemeToggle />
@@ -62,7 +107,9 @@ export function AppShell({ children }: PropsWithChildren) {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Story Settings</DialogTitle>
-            <DialogDescription>Adjust generation preferences.</DialogDescription>
+            <DialogDescription>
+              Adjust generation preferences.
+            </DialogDescription>
           </DialogHeader>
           <div className="grid gap-6">
             <div className="grid gap-2">
@@ -82,14 +129,18 @@ export function AppShell({ children }: PropsWithChildren) {
             <div className="flex items-center justify-between">
               <div>
                 <div className="font-medium">Narration</div>
-                <div className="text-sm text-muted-foreground">Enable text-to-speech narration</div>
+                <div className="text-sm text-muted-foreground">
+                  Enable text-to-speech narration
+                </div>
               </div>
               <Switch defaultChecked />
             </div>
             <div className="flex items-center justify-between">
               <div>
                 <div className="font-medium">Background Music</div>
-                <div className="text-sm text-muted-foreground">Play ambient soundtrack</div>
+                <div className="text-sm text-muted-foreground">
+                  Play ambient soundtrack
+                </div>
               </div>
               <Switch />
             </div>
@@ -108,14 +159,18 @@ export function AppShell({ children }: PropsWithChildren) {
               </Select>
             </div>
             <div className="flex justify-end gap-2">
-              <Button variant="outline" onClick={() => setOpen(false)}>Close</Button>
+              <Button variant="outline" onClick={() => setOpen(false)}>
+                Close
+              </Button>
               <Button onClick={() => setOpen(false)}>Save</Button>
             </div>
           </div>
         </DialogContent>
       </Dialog>
 
-      <main className="container py-10 animate-fade [transition:opacity_300ms,transform_300ms]">{children}</main>
+      <main className="container py-10 animate-fade [transition:opacity_300ms,transform_300ms]">
+        {children}
+      </main>
     </div>
   );
 }

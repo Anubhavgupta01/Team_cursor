@@ -45,20 +45,47 @@ export default function Signup() {
             <form className="grid gap-4" onSubmit={onSubmit}>
               <div className="grid gap-2">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" value={form.name} onChange={(e)=>setForm({...form, name:e.target.value})} />
+                <Input
+                  id="name"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={form.email} onChange={(e)=>setForm({...form, email:e.target.value})} />
+                <Input
+                  id="email"
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" value={form.password} onChange={(e)=>setForm({...form, password:e.target.value})} />
+                <Input
+                  id="password"
+                  type="password"
+                  value={form.password}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target.value })
+                  }
+                />
               </div>
               {error && <p className="text-sm text-destructive">{error}</p>}
-              <Button type="submit" disabled={loading} className="bg-brand-gradient text-white">Create Account</Button>
+              <Button
+                type="submit"
+                disabled={loading}
+                className="bg-brand-gradient text-white"
+              >
+                Create Account
+              </Button>
             </form>
-            <p className="text-sm text-muted-foreground mt-4">Already have an account? <Link className="underline" to="/login">Log in</Link></p>
+            <p className="text-sm text-muted-foreground mt-4">
+              Already have an account?{" "}
+              <Link className="underline" to="/login">
+                Log in
+              </Link>
+            </p>
           </CardContent>
         </Card>
       </div>

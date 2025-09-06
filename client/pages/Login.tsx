@@ -32,15 +32,36 @@ export default function Login() {
             <form className="grid gap-4" onSubmit={onSubmit}>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
-              <Button type="submit" disabled={loading} className="bg-brand-gradient text-white">Log In</Button>
+              <Button
+                type="submit"
+                disabled={loading}
+                className="bg-brand-gradient text-white"
+              >
+                Log In
+              </Button>
             </form>
-            <p className="text-sm text-muted-foreground mt-4">New here? <Link className="underline" to="/signup">Create an account</Link></p>
+            <p className="text-sm text-muted-foreground mt-4">
+              New here?{" "}
+              <Link className="underline" to="/signup">
+                Create an account
+              </Link>
+            </p>
           </CardContent>
         </Card>
       </div>

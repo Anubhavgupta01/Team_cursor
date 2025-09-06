@@ -15,10 +15,17 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Poppins", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: [
+          "Poppins",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(to right, hsl(var(--brand-1)), hsl(var(--brand-2)))",
+        "brand-gradient":
+          "linear-gradient(to right, hsl(var(--brand-1)), hsl(var(--brand-2)))",
       },
       colors: {
         border: "hsl(var(--border))",

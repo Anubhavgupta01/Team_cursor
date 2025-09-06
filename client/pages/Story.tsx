@@ -4,12 +4,40 @@ import { AppShell } from "@/components/AppShell";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
-import { ChevronLeft, ChevronRight, Pencil, RotateCcw, ImageDown, Share2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pencil,
+  RotateCcw,
+  ImageDown,
+  Share2,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Story() {
   const navigate = useNavigate();
@@ -76,7 +104,8 @@ export default function Story() {
       </style></head><body>
       ${scenes
         .map(
-          (s: any) => `<div class='scene'><h2>${s.title}</h2><img src='${location.origin}${s.imageUrl}'/><p>${s.text}</p></div>`,
+          (s: any) =>
+            `<div class='scene'><h2>${s.title}</h2><img src='${location.origin}${s.imageUrl}'/><p>${s.text}</p></div>`,
         )
         .join("")}
       </body></html>`;
@@ -120,7 +149,10 @@ export default function Story() {
             </span>
             <div className="flex gap-1">
               {scenes.map((_: any, i: number) => (
-                <div key={i} className={`h-2 w-2 rounded-full ${i === idx ? "bg-primary" : "bg-muted"}`} />
+                <div
+                  key={i}
+                  className={`h-2 w-2 rounded-full ${i === idx ? "bg-primary" : "bg-muted"}`}
+                />
               ))}
             </div>
           </div>
@@ -133,7 +165,11 @@ export default function Story() {
           <CardContent className="grid gap-6 md:grid-cols-2">
             <div>
               <div className="rounded-lg overflow-hidden border bg-black/5 dark:bg-white/5 relative">
-                <img src={current.imageUrl} alt={current.title} className="w-full h-64 object-cover" />
+                <img
+                  src={current.imageUrl}
+                  alt={current.title}
+                  className="w-full h-64 object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
               </div>
             </div>
@@ -142,19 +178,34 @@ export default function Story() {
                 {current.text}
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                <Button variant="secondary" onClick={regenText}><RotateCcw className="h-4 w-4"/> Regenerate Text</Button>
-                <Button variant="secondary" onClick={regenImage}><ImageDown className="h-4 w-4"/> Regenerate Image</Button>
+                <Button variant="secondary" onClick={regenText}>
+                  <RotateCcw className="h-4 w-4" /> Regenerate Text
+                </Button>
+                <Button variant="secondary" onClick={regenImage}>
+                  <ImageDown className="h-4 w-4" /> Regenerate Image
+                </Button>
                 <Dialog open={editOpen} onOpenChange={setEditOpen}>
                   <DialogTrigger asChild>
-                    <Button variant="outline"><Pencil className="h-4 w-4"/> Edit Scene</Button>
+                    <Button variant="outline">
+                      <Pencil className="h-4 w-4" /> Edit Scene
+                    </Button>
                   </DialogTrigger>
                   <DialogContent>
                     <DialogHeader>
                       <DialogTitle>Edit Scene Text</DialogTitle>
                     </DialogHeader>
-                    <Textarea className="min-h-48" value={draft} onChange={(e) => setDraft(e.target.value)} />
+                    <Textarea
+                      className="min-h-48"
+                      value={draft}
+                      onChange={(e) => setDraft(e.target.value)}
+                    />
                     <div className="flex justify-end gap-2">
-                      <Button variant="outline" onClick={() => setEditOpen(false)}>Cancel</Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => setEditOpen(false)}
+                      >
+                        Cancel
+                      </Button>
                       <Button onClick={onSaveEdit}>Save</Button>
                     </div>
                   </DialogContent>
@@ -165,11 +216,18 @@ export default function Story() {
         </Card>
 
         <div className="mt-6 flex items-center justify-between">
-          <Button variant="outline" onClick={() => setIdx((v) => Math.max(0, v - 1))} disabled={idx === 0}>
-            <ChevronLeft className="h-4 w-4"/> Previous
+          <Button
+            variant="outline"
+            onClick={() => setIdx((v) => Math.max(0, v - 1))}
+            disabled={idx === 0}
+          >
+            <ChevronLeft className="h-4 w-4" /> Previous
           </Button>
-          <Button onClick={() => setIdx((v) => Math.min(scenes.length - 1, v + 1))} disabled={idx === scenes.length - 1}>
-            Next <ChevronRight className="h-4 w-4"/>
+          <Button
+            onClick={() => setIdx((v) => Math.min(scenes.length - 1, v + 1))}
+            disabled={idx === scenes.length - 1}
+          >
+            Next <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
 
@@ -177,16 +235,24 @@ export default function Story() {
           <AlertDialog>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button className="bg-brand-gradient text-white shadow-lg h-12 px-6"><Share2 className="h-5 w-5"/> Export</Button>
+                <Button className="bg-brand-gradient text-white shadow-lg h-12 px-6">
+                  <Share2 className="h-5 w-5" /> Export
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <AlertDialogTrigger asChild>
-                  <DropdownMenuItem onSelect={(e) => e.preventDefault()}>Download as PDF</DropdownMenuItem>
+                  <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                    Download as PDF
+                  </DropdownMenuItem>
                 </AlertDialogTrigger>
                 <AlertDialogTrigger asChild>
-                  <DropdownMenuItem onSelect={(e) => e.preventDefault()}>Save image gallery</DropdownMenuItem>
+                  <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                    Save image gallery
+                  </DropdownMenuItem>
                 </AlertDialogTrigger>
-                <DropdownMenuItem onClick={shareLink}>Share link</DropdownMenuItem>
+                <DropdownMenuItem onClick={shareLink}>
+                  Share link
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <AlertDialogContent>
@@ -198,8 +264,12 @@ export default function Story() {
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction onClick={downloadPDF}>Continue</AlertDialogAction>
-                <AlertDialogAction onClick={downloadGallery}>Images</AlertDialogAction>
+                <AlertDialogAction onClick={downloadPDF}>
+                  Continue
+                </AlertDialogAction>
+                <AlertDialogAction onClick={downloadGallery}>
+                  Images
+                </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>

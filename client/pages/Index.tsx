@@ -37,7 +37,10 @@ export default function Index() {
 
   const onSubmit = async () => {
     if (!idea.trim()) {
-      toast({ title: "Story idea required", description: "Please enter a story idea to continue." });
+      toast({
+        title: "Story idea required",
+        description: "Please enter a story idea to continue.",
+      });
       return;
     }
     try {
@@ -60,7 +63,9 @@ export default function Index() {
   return (
     <AppShell>
       <div className="mx-auto max-w-3xl animate-fade">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-8">Create Your Illustrated Story</h1>
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-8">
+          Create Your Illustrated Story
+        </h1>
 
         <div className="grid gap-6 rounded-2xl border bg-card/60 p-6 md:p-8 shadow-sm">
           <label className="text-sm font-medium">Story Idea</label>
@@ -137,7 +142,11 @@ export default function Index() {
                 </>
               )}
             </Button>
-            <Button variant="outline" className="md:w-48 h-12 text-base" onClick={onRandom}>
+            <Button
+              variant="outline"
+              className="md:w-48 h-12 text-base"
+              onClick={onRandom}
+            >
               <Wand2 className="h-5 w-5" /> Random Idea
             </Button>
           </div>
