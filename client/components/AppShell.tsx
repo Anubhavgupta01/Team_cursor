@@ -22,9 +22,16 @@ export function AppShell({ children }: PropsWithChildren) {
     <div className="min-h-screen bg-[radial-gradient(1200px_600px_at_50%_-200px,hsl(var(--brand-1)/0.25),transparent_70%)] dark:bg-[radial-gradient(1200px_600px_at_50%_-200px,hsl(var(--brand-2)/0.25),transparent_70%)]">
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
         <div className="container flex items-center justify-between h-16">
-          <a href="/" className="font-extrabold text-xl tracking-tight select-none">
+          <a href="/home" className="font-extrabold text-xl tracking-tight select-none">
             <span className="bg-brand-gradient bg-clip-text text-transparent">StoryVisualizer</span>
           </a>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+            <a className="hover:text-foreground transition" href="/home">Home</a>
+            <a className="hover:text-foreground transition" href="/home#features">Features</a>
+            <a className="hover:text-foreground transition" href="/home#pricing">Pricing</a>
+            <a className="hover:text-foreground transition" href="/home#faq">FAQ</a>
+            <a className="hover:text-foreground transition" href="/home#contact">Contact</a>
+          </nav>
           <div className="flex items-center gap-2">
             {user ? (
               <DropdownMenu>
@@ -40,8 +47,8 @@ export function AppShell({ children }: PropsWithChildren) {
               </DropdownMenu>
             ) : (
               <>
-                <a href="/signup"><Button>Sign Up</Button></a>
-                <a href="/login"><Button variant="outline">Log In</Button></a>
+                <a href="/signup" className="hidden md:block"><Button>Sign Up</Button></a>
+                <a href="/login" className="hidden md:block"><Button variant="outline">Log In</Button></a>
               </>
             )}
             <ThemeToggle />
