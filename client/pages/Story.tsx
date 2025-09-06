@@ -111,7 +111,7 @@ export default function Story() {
 
   return (
     <AppShell>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto animate-fade">
         <div className="mb-6">
           <Progress value={progress} />
           <div className="mt-2 flex items-center justify-between text-sm text-muted-foreground">
@@ -132,8 +132,9 @@ export default function Story() {
           </CardHeader>
           <CardContent className="grid gap-6 md:grid-cols-2">
             <div>
-              <div className="rounded-lg overflow-hidden border bg-black/5 dark:bg-white/5">
+              <div className="rounded-lg overflow-hidden border bg-black/5 dark:bg-white/5 relative">
                 <img src={current.imageUrl} alt={current.title} className="w-full h-64 object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
               </div>
             </div>
             <div>
