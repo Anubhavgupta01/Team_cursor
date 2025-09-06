@@ -14,12 +14,14 @@ import { Switch } from "@/components/ui/switch";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/state/auth";
+import BackgroundFX from "@/components/BackgroundFX";
 
 export function AppShell({ children }: PropsWithChildren) {
   const [open, setOpen] = useState(false);
   const { user, logout } = useAuth();
   return (
-    <div className="min-h-screen bg-[radial-gradient(1200px_600px_at_50%_-200px,hsl(var(--brand-1)/0.25),transparent_70%)] dark:bg-[radial-gradient(1200px_600px_at_50%_-200px,hsl(var(--brand-2)/0.25),transparent_70%)]">
+    <div className="min-h-screen relative">
+      <BackgroundFX />
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
         <div className="container flex items-center justify-between h-16">
           <a href="/home" className="font-extrabold text-xl tracking-tight select-none">
@@ -113,7 +115,7 @@ export function AppShell({ children }: PropsWithChildren) {
         </DialogContent>
       </Dialog>
 
-      <main className="container py-10">{children}</main>
+      <main className="container py-10 animate-fade [transition:opacity_300ms,transform_300ms]">{children}</main>
     </div>
   );
 }
