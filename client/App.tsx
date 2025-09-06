@@ -13,6 +13,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/state/auth";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 const queryClient = new QueryClient();
 
