@@ -103,6 +103,7 @@
   * { @apply border-border; }
   body { @apply bg-background text-foreground font-sans; }
   h1,h2,h3 { @apply font-display; }
+  html { scroll-behavior: smooth; }
 }
 
 @layer utilities {
